@@ -1,19 +1,19 @@
 const express = require('express')
-
 const app = express()
-
 const PORT = process.env.PORT || 8000
+require('dotenv').config();
+const colors = require('colors')
+
+const connectDB = require('./config/db')
+const userRoutes = require('./routes/userRoutes')
 
 
+connectDB()
 app.use(express.json())
 
+app.use('/auth', userRoutes)
 
-app.get('/', (req, res) => {
-    res.send('nigga backend')
-})
-
-app.use('/api/users', require('./routes/userRoutes') )
 
 app.listen(PORT, () => {
-    console.log(`Server is listening on ${PORT}`)
+    console.log(`Server is listening on ${PORT}`.blue)
 })
