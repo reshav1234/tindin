@@ -1,33 +1,43 @@
-import Image from "../../Assets/business.webp"
-import { FaCheckCircle } from "react-icons/fa";
-import { IconButton } from "rsuite";
-import { IoMdCloseCircle } from "react-icons/io";
-
 import './UserProfile.css'
 
 
 const UserProfile = () => {
-    const handleTick = () => {
 
-    }
+  return (
+    <>
+      <div className="hero-group">
 
-    const handleCross = () => {
+        <div className="small-card card">
 
-    }
-    return(
-        <>
-            <div className = "hero">
-                <div className = "hero_card">
-                    <img src = {Image} />
-                    <div className = "description">
-                        <h3>Reshav Thapa</h3>
-                        <IconButton icon={<FaCheckCircle />}></IconButton>
-                        <IconButton icon = {<IoMdCloseCircle/>}></IconButton>
-                    </div>
-                </div>
-            </div>
-        </>
-    )
+        </div>
+        <div className="big-card card">
+
+        </div>
+
+
+        <div className="small-card card">
+
+        </div>
+        <div className="big-card card">
+
+        </div>
+
+        <div className="small-card card">
+
+        </div>
+
+        <div className="big-card card">
+        </div>
+
+        <div className="small-card card">
+
+        </div>
+        <div className="big-card card">
+
+        </div>
+      </div>
+    </>
+  )
 }
 
 export default UserProfile;
