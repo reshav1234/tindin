@@ -1,10 +1,12 @@
 //import Register from "./Components/Register"
-import UserProfile from "./Components/UserProfile/UserProfile"
+import Register from "./Components/Register"
+//import UserProfile from "./Components/UserProfile/UserProfile"
 
 const App = () => {
   return (
     <>
-      <UserProfile />
+      <Register />
+
     </>
   )
 }

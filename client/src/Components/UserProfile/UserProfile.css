@@ -1,9 +1,10 @@
 body{
   margin:0px;
-  background-color:black;
+  background-image:url('../../Assets/paris.webp');
   display:grid;
   height:100vh;
   place-items:center;
+  width: auto;
 }
 
 .hero-group, .card{

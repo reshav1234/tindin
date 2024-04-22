@@ -1,7 +1,7 @@
 import './UserProfile.css'
 
-
 const UserProfile = () => {
+
 
   return (
     <>
@@ -23,9 +23,7 @@ const UserProfile = () => {
         </div>
 
         <div className="small-card card">
-
         </div>
-
         <div className="big-card card">
         </div>
 
@@ -36,8 +34,10 @@ const UserProfile = () => {
 
         </div>
       </div>
+
+
     </>
   )
 }
 
-export default UserProfile;
+export default UserProfile; 
