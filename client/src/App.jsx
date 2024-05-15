@@ -1,11 +1,9 @@
-//import Register from "./Components/Register"
-import Register from "./Components/Register"
-//import UserProfile from "./Components/UserProfile/UserProfile"
+import UserProfile from "./Components/UserProfile/UserProfile.jsx"
 
 const App = () => {
   return (
     <>
-      <Register />
+      <UserProfile />
 
     </>
   )

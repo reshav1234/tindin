@@ -88,5 +88,24 @@ body{
   transform:translate(-280%, 140%) rotate(-15deg);
 }
 
+.buttons{
+  margin:8mvin;
+  display:flex;
+  justify-content:space-around;
+  padding: 0vmin 4vmin;
+}
 
+.buttons button{
+  font-size: 2.5vmin;
+  border: 0.4vmin solid rgb(200, 200, 200);
+  border-radius: 100%;
+  color: white;
+  background-color: transparent;
+  height: 7vmin;
+  width: 7vmin;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+
+}
 
