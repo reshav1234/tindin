@@ -68,6 +68,7 @@ const UserProfile = () => {
 
   ]
 
+
   const imageStyle = {
     width: '100%',
     height: '100%',
@@ -78,17 +79,24 @@ const UserProfile = () => {
 
   return (
     <>
-      <div className="card-group">
-        {cardGroupData.map((cardGroup, index) => (
-          <div key={index} className="hero-group">
-            {Array.isArray(cardGroup.imageURL) && cardGroup.imageURL.map((image, imageIndex) => (
-              <div key={imageIndex} className={imageIndex % 2 == 0 ? 'small-card card' : 'big-card card'}>
-                <img src={image.imageURL} style={imageStyle} alt={`Image ${index}${imageIndex}`} />
-              </div>
-            ))}
-          </div>
-        ))}
+      <div className="card-swiper">
+        <div className="card-group">
+          {cardGroupData.map((cardGroup, index) => (
+            <div key={index} className="hero-group" data-index={index} data-status={index == 0 ? 'active' : 'unknown'}>
+              {Array.isArray(cardGroup.imageURL) && cardGroup.imageURL.map((image, imageIndex) => (
+                <div key={imageIndex} className={imageIndex % 2 == 0 ? 'small-card card' : 'big-card card'}>
+                  <img src={image.imageURL} style={imageStyle} alt={`Image ${index}${imageIndex}`} />
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+        <div className="card-swiper-button">
+          <button>dislike</button>
+          <button>like</button>
+        </div>
       </div>
+
     </>
   )
 }

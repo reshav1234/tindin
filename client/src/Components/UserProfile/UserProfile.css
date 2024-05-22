@@ -11,13 +11,21 @@ body{
   object-fit: cover;
 }
 
-.hero-group, .card{
+.card-group, .hero-group, .card{
   aspect-ratio:5/7;
 }
 
-.hero-group, .big-card{
+.card-group, .hero-group, .big-card{
   width:30vmin;
 } 
+
+.hero-group{
+  position:absolute;
+}
+
+.hero-group[data-status = "unknown"]{
+  transform: scale(0);
+}
 
 .card{
   background-color:rgba(255,255,255,0.05);
@@ -88,14 +96,13 @@ body{
   transform:translate(-280%, 140%) rotate(-15deg);
 }
 
-.buttons{
-  margin:8mvin;
+.card-swiper-button{
+  margin:5vmin;
   display:flex;
   justify-content:space-around;
-  padding: 0vmin 4vmin;
 }
 
-.buttons button{
+.card-swiper-button button{
   font-size: 2.5vmin;
   border: 0.4vmin solid rgb(200, 200, 200);
   border-radius: 100%;
