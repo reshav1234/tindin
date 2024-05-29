@@ -21,11 +21,38 @@ body{
 
 .hero-group{
   position:absolute;
+  transition: transform 400ms ease;
 }
 
 .hero-group[data-status = "unknown"]{
   transform: scale(0);
+  transition:none;
 }
+
+.hero-group[data-status = "active"]{
+  transition-delay: 300ms;
+}
+
+.hero-group[data-status = "after"]{
+  transform: translate(50%) scale(0);
+}
+
+
+.hero-group[data-status="before"] {
+  transform: translateX(-50%) scale(0);
+}
+
+.hero-group[data-status="becoming-active-from-after"] {
+  transform: translateX(50%) scale(0);
+  transition: none;
+}
+
+.hero-group[data-status="becoming-active-from-before"] {
+  transform: translateX(-50%) scale(0);
+  transition: none;
+}
+
+
 
 .card{
   background-color:rgba(255,255,255,0.05);
