@@ -1,22 +1,30 @@
 const express = require('express')
+const port = 8000
+
+const pool = require('./db')
+
 const app = express()
-const PORT = process.env.PORT || 8000
-require('dotenv').config();
-const colors = require('colors')
-const cors = require('cors')
-
-const connectDB = require('./config/db')
-const userRoutes = require('./routes/userRoutes')
-
-
-connectDB()
 app.use(express.json())
-app.use(cors())
 
-
-app.use('/auth', userRoutes)
-
-
-app.listen(PORT, () => {
-    console.log(`Server is listening on ${PORT}`.blue)
+app.get('/', async (req, res) => {
+  try {
+    const data = await pool.query("SELECT * FROM schools")
+    res.status(200).send(data.rows)
+  } catch (err) {
+    console.log(err)
+    res.sendStatus(500)
+  }
 })
+
+app.post('/post', async (req, res) => {
+  const { name, location } = res.body
+  try {
+    await pool.query('INSERT INTO schools (name, class) VALUES($1, $2)', [name, location])
+    res.send(200).send({ message: "Successfully added values" })
+  } catch (err) {
+    console.log(err)
+    res.sendStatus(500)
+  }
+})
+
+app.listen(port, () => console.log(`connection in port ${port}`))
