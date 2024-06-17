@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import image_01 from "../../Assets/business.webp";
-import business_02 from "../../Assets/business_02.jpg";
+import { getCards } from '../../api/index.js';
+
 import './UserProfile.css';
 
 
@@ -8,35 +8,8 @@ import './UserProfile.css';
 const UserProfile = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [action, setAction] = useState(null); // Add action state
+  const [cardGroupData, setCardGroupData] = useState([])
 
-  const cardGroupData = [
-    {
-      id: 1,
-      imageURL: [
-        image_01,
-        image_01,
-        business_02,
-        image_01,
-        business_02,
-        image_01,
-        image_01,
-        image_01,
-      ],
-    },
-    {
-      id: 2,
-      imageURL: [
-        image_01,
-        image_01,
-        image_01,
-        image_01,
-        image_01,
-        image_01,
-        image_01,
-        image_01,
-      ],
-    },
-  ];
 
   const imageStyle = {
     width: '100%',
@@ -46,6 +19,31 @@ const UserProfile = () => {
     overflow: 'hidden',
   };
 
+  useEffect(() => {
+    fetchCard()
+  }, [])
+
+  const fetchCard = async () => {
+    try {
+      const fetchedCards = await getCards()
+      setCardGroupData(fetchedCards.map(card => ({
+        id: card.id,
+        imageURL: [
+          card.image1,
+          card.image2,
+          card.image3,
+          card.image4,
+          card.image5,
+          card.image6,
+          card.image7,
+          card.image8,
+        ]
+      })))
+    } catch (err) {
+      console.error("Error fetching card", err)
+      throw err
+    }
+  }
   useEffect(() => {
     const currentGroup = document.querySelector(`[data-index="${activeIndex}"]`);
     const nextIndex = action === 'like'
