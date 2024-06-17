@@ -37,9 +37,7 @@ const BusinessCard = sequelize.define('BusinessCard', {
   image6: DataTypes.STRING,
   image7: DataTypes.STRING,
   image8: DataTypes.STRING,
-}, {
-  tableName: 'BusinessCard'
-});
+},);
 
 sequelize.sync()
 
